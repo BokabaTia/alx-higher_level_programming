@@ -16,13 +16,13 @@ class Rectangle:
 
     @property
     def width(self):
-        """ width
+        """width
         """
         return self.__width
 
     @property
     def height(self):
-        """ height
+        """ heigth
         """
         return self.__height
 
@@ -45,6 +45,14 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if type(rect_1) is not Rectangle:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if type(rect_2) is not Rectangle:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        return rect_1 if rect_1.area() >= rect_2.area() else rect_2
 
     def area(self):
         """ returns rectangle area"""
